@@ -43,7 +43,7 @@ app.use('/addData', async(req, res)=>{
     const collection = db.collection('members')
 
     const result = await collection.insertOne({
-        name: 'Nasir Hussain',
+        name: 'Abis Hussain',
         age: 24,
         city: 'Karachi'
     })
