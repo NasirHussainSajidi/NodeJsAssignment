@@ -40,29 +40,75 @@ const mongoose = require('mongoose');
 const validator = require('validator')
 const { Schema } = mongoose;
 
+// const userSchema = new Schema({
+//     firstName: {
+//         type: String,   // ✅ correct
+//         require:true,
+//         min: 3,
+//         max: 20,
+//         trim: true
+
+//     },
+//     lastName: {
+//         type: String,   // ✅ correct
+//         min: 3,
+//         max: 20
+//     },
+//     password: {
+//         type: String,   // ✅ correct
+//         require: true,
+//         validate(value){
+//             if(!validator.isStrongPassword(value)){
+//                 throw new Error("Please enter strong password")                
+                
+//             }
+//         }
+//     },
+//     email: {
+//         type: String ,   // ✅ correct
+//         require:true,
+//         index: true,
+//         unique: true,
+//         lowercase: true,
+//         trim:true,
+//         validate(value){
+//             if(!validator.isEmail(value)){
+//                 throw new Error("Please enter a valid email")
+//             }
+//         }
+//     },
+//     gender: {
+//         type: String,
+//         validate(value){
+//             if([!male || !femail || !other].includes(value)){
+//                 throw new Error("Gender data is not valid")
+//             }
+//         }
+//     }
+// },
+// {
+//     collection: "Users",  // ✅ small letters
+//     timestamps: true
+// });
+
+
 const userSchema = new Schema({
-    firstName: {
+    product: {
         type: String,   // ✅ correct
         require:true,
         min: 3,
         max: 20,
-        trim: true
+        // trim: true
 
     },
-    lastName: {
+    description: {
         type: String,   // ✅ correct
         min: 3,
-        max: 20
+        max: 520
     },
-    password: {
-        type: String,   // ✅ correct
-        require: true,
-        validate(value){
-            if(!validator.isStrongPassword(value)){
-                throw new Error("Please enter strong password")                
-                
-            }
-        }
+    pricr: {
+       type: Number,
+       required: true
     },
     email: {
         type: String ,   // ✅ correct
@@ -90,6 +136,8 @@ const userSchema = new Schema({
     collection: "Users",  // ✅ small letters
     timestamps: true
 });
+
+
 
 const User = mongoose.model("User", userSchema);
 module.exports = { User };
